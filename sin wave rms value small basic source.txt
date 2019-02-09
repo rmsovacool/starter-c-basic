@@ -1,0 +1,36 @@
+Npts= 1000
+'        Dim y, x, xmin, xmax, interval, delta_x As Single
+'        Dim sum As Single
+        PI=Math.pi
+        textwindow.WriteLine("develop Area under the curve of a function")
+
+        'establish number of points Npts here:
+        sum = 0.0
+        'establish endpoints (xmin, xmax) here:
+        xmin = 0.0
+        xmax = PI
+        'xmax = 1.0
+        interval = xmax - xmin
+        delta_x = (xmax - xmin) / Npts
+
+        textwindow.WriteLine("N,  Sin ")
+        For N = 1 To Npts
+            'establish function here:
+            y = Math.power((Math.Sin(PI * N / Npts)),2)  'SINE FUNCTION squared
+            'x = xmin + N * delta_x
+            ' y = Sqrt(1 - x * x)                   'circle (1/4)
+            '            Console.WriteLine()
+            '           Console.Write(N)
+            '          Console.Write("  ")
+            '         Console.Write(y)
+            sum = sum + y * delta_x             ' the area is the sum
+            'rms squared is area squared/interval
+        Endfor
+        textwindow.WriteLine("")
+        textwindow.WriteLine("sum y_squared/interval= rms squared")
+        textwindow.Write(sum / interval)
+        textwindow.WriteLine("")
+        textwindow.WriteLine("rms= ")
+        rms=Math.squareroot(sum/interval)
+        textwindow.Write(rms)
+        temp= textwindow.Read()     'pause for input to read screen enter Npts late
